@@ -11,7 +11,8 @@ int main()
     bool flag;
     int przegrane = 0;  // licznik przegranych
     int max_przegranych = 3;
-
+    int dlugosc;
+    int wynik;
     srand(time(NULL));
 
     std::cout << "Gra trwa do trzech niepoprawnych odpowiedzi." << std::endl;
@@ -29,14 +30,20 @@ int main()
             if (dutch[i] == f && i == b)
             {
                 flag = true;
+               dlugosc = dutch[b].length();
+
                 break;
             }
         }
 
         if (flag)
         {
-            std::cout << "Zgadles brawo!!!" << std::endl;
-        }
+         std::cout << "Zgadles brawo!!!" << std::endl;
+
+         wynik =wynik + ( dlugosc * 3);
+
+         std::cout << "Ilosc Punktow: " << wynik  << std::endl;
+             }
         else
         {
             przegrane++;
