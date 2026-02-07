@@ -1,48 +1,50 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
-
+#include <ctime>
 
 int main()
 {
+    std::string english[5] = {"jeden", "dwa", "trzy", "cztery", "piec"};
+    std::string dutch[5] = {"one", "two", "three", "four", "five"};
+    std::string f;
+    bool flag;
+    int przegrane = 0;  // licznik przegranych
+    int max_przegranych = 3;
 
-std::string f = "placeholder";
+    srand(time(NULL));
 
-std::string english[2] = {"jeden","dwa"};
-std::string dutch[2] = {"one","two"};
-int a = {0};
+    std::cout << "Gra trwa do trzech niepoprawnych odpowiedzi." << std::endl;
 
-srand(time(0));
+    while (przegrane < max_przegranych)
+    {
+        int b = rand() % 5;
+        std::cout << "Podaj tlumaczenie slowa " << english[b] << ": ";
+        std::cin >> f;
 
-int b = rand() 0 % 2;
+        flag = false;
 
-std::cout << "podaj tlumaczenie slowa " << english[b] << std::endl;
-std::cin >> f;
+        for (int i = 0; i < 5; i++)
+        {
+            if (dutch[i] == f && i == b)
+            {
+                flag = true;
+                break;
+            }
+        }
 
-for(int i = 0;  i<2;  i++)
-{
-auto characterfound = dutch[i].find(f);
+        if (flag)
+        {
+            std::cout << "Zgadles brawo!!!" << std::endl;
+        }
+        else
+        {
+            przegrane++;
+            std::cout << "Niestety nie zgadles. Liczba niepoprawnych odpowiedzi: " << przegrane << "/" << max_przegranych << std::endl;
+        }
+    }
 
-if(characterfound !=std::string::npos && i == b )
+    std::cout << "Przegrales 3 razy. Koniec gry." << std::endl;
 
-{
-
-std::cout <<"brawo zgadles "<< std::endl;
-a = i;
-
+    return 0;
 }
-else
-{
-std::cout << "slowa nie znaleziono " << std::endl;
-}}
-
-
-
-
-
-
-
-
-
-return 0;
-};
